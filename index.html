@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Evolution of HTTP</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1 class="site-title">The Evolution of HTTP</h1>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="origins.html">Origins</a>
+      <a href="http11.html">HTTP/1.1 & HTTP/2</a>
+      <a href="http3.html">HTTP/3 (QUIC)</a>
+      <a href="concepts.html">Key Concepts</a>
+      <a href="references.html">References</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+  <main class="container">
+<section class="card">
+  <h2>Introduction</h2>
+  <p>
+    HTTP is the web’s application-layer “lingua franca.” Its <em>semantics</em> — methods (GET/POST),
+    status codes, headers, and URIs — stay consistent across versions, while transport details evolved
+    to improve speed, reliability, and security across sites, apps, APIs, and IoT.
+  </p>
+  <p>
+    In 2022 the IETF clarified the family by separating common semantics (RFC 9110) from transport
+    mappings (HTTP/1.1 in RFC 9112, HTTP/2 in RFC 9113, HTTP/3 in RFC 9114). That preserves continuity
+    while enabling iteration beneath the application contract.
+  </p>
+</section>
+
+<section class="grid two">
+  <article class="card">
+    <h3>Table of Contents</h3>
+    <ul>
+      <li><a href="origins.html">Origins of HTTP (0.9 & 1.0)</a></li>
+      <li><a href="http11.html">HTTP/1.1 and HTTP/2</a></li>
+      <li><a href="http3.html">HTTP/3 (QUIC)</a></li>
+      <li><a href="concepts.html">Key Concepts</a></li>
+      <li><a href="references.html">References & Resources</a></li>
+      <li><a href="about.html">About the Author</a></li>
+    </ul>
+  </article>
+  <article class="card">
+    <h3>Abstract</h3>
+    <p>
+      This site explains how HTTP evolved from early one‑shot transfers to multiplexed framing and
+      QUIC‑powered transport, keeping semantics stable while improving performance and resilience.
+    </p>
+    <img src="img/http-diagram.png" alt="Diagram: HTTP versions overview" class="hero-img"/>
+  </article>
+</section>
+</main>
+  <footer class="footer">
+    <p>This website was created as part of IT 3203 — <a href="https://ksuweb.github.io/IT3203/">Course Site</a>.</p>
+  </footer>
+</body>
+</html>

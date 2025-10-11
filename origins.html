@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Evolution of HTTP</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1 class="site-title">The Evolution of HTTP</h1>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="origins.html">Origins</a>
+      <a href="http11.html">HTTP/1.1 & HTTP/2</a>
+      <a href="http3.html">HTTP/3 (QUIC)</a>
+      <a href="concepts.html">Key Concepts</a>
+      <a href="references.html">References</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+  <main class="container">
+<article class="card">
+  <h2>Origins of HTTP: 0.9 and 1.0</h2>
+  <p>
+    The web began at CERN (1989–1991) where Tim Berners‑Lee proposed a distributed hypertext system.
+    The first stack paired URLs, HTML, and HTTP, demonstrated on <code>info.cern.ch</code>. The
+    WorldWideWeb browser/editor showed HTTP could glue publication and retrieval.
+  </p>
+  <p>
+    <strong>HTTP/0.9</strong> exposed a single <code>GET</code> returning an untyped payload. No headers;
+    no content negotiation. <strong>HTTP/1.0</strong> (1996) added request/response headers, media typing,
+    and methods like <code>HEAD</code> and <code>POST</code>. Connections were typically short‑lived
+    (one request per TCP connection), which later motivated performance work.
+  </p>
+</article>
+
+<section class="card">
+  <h3>Example: HTTP/1.0 Request</h3>
+  <pre class="code">GET /index.html HTTP/1.0
+Host: example.org
+
+</pre>
+  <p class="caption">A simple HTTP/1.0 request with a <code>Host</code> header.</p>
+</section>
+</main>
+  <footer class="footer">
+    <p>This website was created as part of IT 3203 — <a href="https://ksuweb.github.io/IT3203/">Course Site</a>.</p>
+  </footer>
+</body>
+</html>

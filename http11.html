@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Evolution of HTTP</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1 class="site-title">The Evolution of HTTP</h1>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="origins.html">Origins</a>
+      <a href="http11.html">HTTP/1.1 & HTTP/2</a>
+      <a href="http3.html">HTTP/3 (QUIC)</a>
+      <a href="concepts.html">Key Concepts</a>
+      <a href="references.html">References</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+  <main class="container">
+<article class="card">
+  <h2>HTTP/1.1 and HTTP/2</h2>
+  <p>
+    <strong>HTTP/1.1</strong> standardized persistent connections, chunked transfer encoding, virtual
+    hosting via <code>Host</code>, and a mature caching model. It became the default across major servers
+    for two decades.
+  </p>
+  <p>
+    <strong>HTTP/2</strong> (2015) preserved semantics but added a binary framing layer that multiplexes
+    many streams over a single TCP connection and compresses headers (HPACK). This reduced handshake
+    overhead and latency compared to the one‑stream‑per‑connection model. Priority signaling has since
+    been simplified, and server push saw limited benefit and is disabled by default in Chrome.
+  </p>
+</article>
+
+<section class="card">
+  <h3>Quick Comparison</h3>
+  <table class="table">
+    <thead>
+      <tr><th>Feature</th><th>HTTP/1.1</th><th>HTTP/2</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Connection Usage</td><td>Persistent; one stream per TCP</td><td>Many streams over one TCP</td></tr>
+      <tr><td>Headers</td><td>Plain text</td><td>HPACK compression</td></tr>
+      <tr><td>Primary Benefit</td><td>Correctness + practicality at scale</td><td>Lower latency via multiplexing</td></tr>
+    </tbody>
+  </table>
+</section>
+</main>
+  <footer class="footer">
+    <p>This website was created as part of IT 3203 — <a href="https://ksuweb.github.io/IT3203/">Course Site</a>.</p>
+  </footer>
+</body>
+</html>
