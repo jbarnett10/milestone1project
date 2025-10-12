@@ -23,18 +23,21 @@
 <article class="card">
   <h2>HTTP/3 on QUIC</h2>
   <p>
-    <strong>HTTP/3</strong> maps HTTP onto <strong>QUIC</strong>, a UDP‑based, secure transport that provides
-    per‑stream multiplexing, fast handshakes (1‑RTT/0‑RTT), and connection migration. By moving multiplexing into
-    the transport, HTTP/3 avoids TCP head‑of‑line blocking that can hinder HTTP/2 when packets are lost.
+    <strong>HTTP/3</strong> maps HTTP onto <strong>QUIC</strong>, a <b>UDP-based, encrypted transport protocol</b> 
+    that provides per-stream multiplexing, fast handshakes (1-RTT/0-RTT), and connection migration. 
+    By handling multiplexing at the transport layer, HTTP/3 avoids the <b>head-of-line blocking</b> 
+    that limited HTTP/2’s performance when packets were lost.
   </p>
   <p>
-    QUIC integrates TLS 1.3 and is widely enabled by major browsers and CDNs, improving performance especially
-    on mobile and lossy networks.
+    <b>QUIC</b> integrates <b>TLS 1.3</b> and is widely supported by browsers and CDNs, improving speed and stability 
+    on mobile and lossy networks. Stream-level recovery means a lost packet doesn’t stall other requests, 
+    making <b>HTTP/3</b> ideal for variable connections.
   </p>
-<p>
-    QUIC’s use of UDP avoids TCP’s head‑of‑line blocking and supports fast handshakes (often 0‑RTT),
-    while stream‑level recovery prevents one lost packet from stalling others. This makes HTTP/3 well‑suited to mobile devices and variable networks.
-    </p></article>
+  <p>
+    Together, these innovations make <b>HTTP/3</b> the fastest and most resilient version of the protocol to date.
+  </p>
+</article>
+
 
 <section class="card">
   <h3>At a Glance</h3>
