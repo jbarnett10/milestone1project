@@ -1,3 +1,11 @@
+<!-- 
+  Project: IT 3203 Milestone #1 — The Evolution of HTTP
+  Author: Jayden Rodriguez-Barnett
+  Course: Intro to Web Development (Fall 2025)
+  Purpose: This page is part of a 6-page educational site explaining how HTTP evolved.
+  Notes: Uses shared navigation, single external CSS, and accessible structure.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +15,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- ===== Header and Site Navigation ===== -->
   <header class="header">
     <h1 class="site-title">The Evolution of HTTP</h1>
+    <!-- Main navigation: shared across all pages -->
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="origins.html">Origins</a>
@@ -19,22 +29,28 @@
       <a href="about.html">About</a>
     </nav>
   </header>
+  
+    <!-- ===== Main Content Area ===== -->
   <main class="container">
+     <!-- Section: Introductory overview of HTTP -->
 <section class="card">
   <h2>Introduction</h2>
   <p>
-    HTTP is the web’s application-layer “lingua franca.” Its <em>semantics</em> — methods (GET/POST),
+    HTTP is the web's application-layer “lingua franca.” Its <em>semantics</em> — methods (GET/POST),
     status codes, headers, and URIs — stay consistent across versions, while transport details evolved
     to improve speed, reliability, and security across sites, apps, APIs, and IoT.
   </p>
   <p>
-    In 2022 the IETF clarified the family by separating common semantics (RFC 9110) from transport
-    mappings (HTTP/1.1 in RFC 9112, HTTP/2 in RFC 9113, HTTP/3 in RFC 9114). That preserves continuity
+    In 2022 the IETF clarified the family by separating common semantics (RFC 9110) from transport
+    mappings (HTTP/1.1 in RFC 9112, HTTP/2 in RFC 9113, HTTP/3 in RFC 9114). That preserves continuity
     while enabling iteration beneath the application contract.
   </p>
 </section>
 
+
+<!-- Section: Grid layout for TOC and abstract -->
 <section class="grid two">
+   <!-- Article: Table of contents with internal links -->
   <article class="card">
     <h3>Table of Contents</h3>
     <p>Use the links below to explore how HTTP evolved across its major versions.</p>
@@ -47,15 +63,18 @@
       <li><a href="about.html">About</a></li>
     </ul>
   </article>
+  
+   <!-- Article: Abstract summary and diagram -->
   <article class="card">
     <h3>Abstract</h3>
     <p>
-      This site explains how HTTP evolved from early one‑shot transfers to multiplexed framing and
-      QUIC‑powered transport, keeping semantics stable while improving performance and resilience.
+      This site explains how HTTP evolved from early one-shot transfers to multiplexed framing and
+      QUIC-powered transport, keeping semantics stable while improving performance and resilience.
+     <!-- Representative image showing protocol evolution -->
     </p>
     <img src="img/http-diagram.png" alt="Diagram: HTTP versions overview" class="hero-img"/>
     <p>
-    Each new version of HTTP addressed real‑world bottlenecks: HTTP/1.x prioritized correctness and broad interoperability,
+    Each new version of HTTP addressed real-world bottlenecks: HTTP/1.x prioritized correctness and broad interoperability,
     HTTP/2 reduced latency through multiplexing and header compression, and HTTP/3 improved resilience and startup time on mobile and lossy networks.
     </p>
   </article>
