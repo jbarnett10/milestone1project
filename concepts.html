@@ -1,3 +1,11 @@
+<!-- 
+  Project: IT 3203 Milestone #1 — The Evolution of HTTP
+  Author: Jayden Rodriguez-Barnett
+  Course: Intro to Web Development (Fall 2025)
+  Purpose: This page is part of a 6-page educational site explaining how HTTP evolved.
+  Notes: Uses shared navigation, single external CSS, and accessible structure.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +15,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+   <!-- ===== Header and Site Navigation ===== -->
   <header class="header">
     <h1 class="site-title">The Evolution of HTTP</h1>
+    <!-- Main navigation: shared across all pages -->
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="origins.html">Origins</a>
@@ -19,18 +29,23 @@
       <a href="about.html">About</a>
     </nav>
   </header>
+  
+   <!-- ===== Main Content Area ===== -->
   <main class="container">
+     <!-- Card section listing HTTP key concepts -->
 <article class="card">
   <h2>Key Concepts</h2>
-  <p>Below are core principles and mechanisms that have shaped HTTP’s evolution.</p>
+   <!-- Introductory text -->
+  <p>Below are core principles and mechanisms that have shaped HTTP's evolution.</p>
+  <!-- Unordered list of HTTP concepts -->
   <ul>
     <li><strong>HTTP Semantics:</strong> Stable methods, status codes, headers, and URIs across versions.</li>
-    <li><strong>Statelessness:</strong> Each request is independent; session state isn’t implied, which simplifies servers but requires cookies/sessions for continuity.</li>
+    <li><strong>Statelessness:</strong> Each request is independent; session state isn't implied, which simplifies servers but requires cookies/sessions for continuity.</li>
     <li><strong>Persistent Connections:</strong> Reuse a TCP connection for multiple requests (HTTP/1.1), reducing handshake overhead and improving throughput.</li>
     <li><strong>Multiplexing:</strong> Parallel streams over one connection (HTTP/2; QUIC for HTTP/3), minimizing blocking when many assets load at once.</li>
     <li><strong>HPACK:</strong> Header compression algorithm in HTTP/2 that reduces repeated header bytes across requests.</li>
-    <li><strong>QUIC:</strong> UDP‑based transport with integrated TLS 1.3 and stream multiplexing for HTTP/3.</li>
-    <li><strong>Head‑of‑Line Blocking:</strong> Single lost TCP packet stalling others; mitigated by QUIC streams.</li>
+    <li><strong>QUIC:</strong> UDP-based transport with integrated TLS 1.3 and stream multiplexing for HTTP/3.</li>
+    <li><strong>Head-of-Line Blocking:</strong> Single lost TCP packet stalling others; mitigated by QUIC streams.</li>
   </ul>
 </article>
 </main>

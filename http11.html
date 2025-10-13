@@ -1,3 +1,11 @@
+<!-- 
+  Project: IT 3203 Milestone #1 — The Evolution of HTTP
+  Author: Jayden Rodriguez-Barnett
+  Course: Intro to Web Development (Fall 2025)
+  Purpose: This page is part of a 6-page educational site explaining how HTTP evolved.
+  Notes: Uses shared navigation, single external CSS, and accessible structure.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +15,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- ===== Header and Site Navigation ===== -->
   <header class="header">
     <h1 class="site-title">The Evolution of HTTP</h1>
+     <!-- Main navigation: shared across all pages -->
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="origins.html">Origins</a>
@@ -19,30 +29,39 @@
       <a href="about.html">About</a>
     </nav>
   </header>
+  
+  
+  <!-- ===== Main Content Area ===== -->
   <main class="container">
+    <!-- Article: Overview of HTTP/1.1 and HTTP/2 -->
 <article class="card">
   <h2>HTTP/1.1 and HTTP/2</h2>
+  <!-- Summary of HTTP/1.1 features -->
   <p>
     <strong>HTTP/1.1</strong> standardized persistent connections, chunked transfer encoding, virtual
     hosting via <code>Host</code>, and a mature caching model. It became the default across major servers
     for two decades.
   </p>
+   <!-- Summary of HTTP/2 changes and their impact -->
   <p>
     <strong>HTTP/2</strong> (2015) preserved semantics but added a binary framing layer that multiplexes
     many streams over a single TCP connection and compresses headers (HPACK). This reduced handshake
-    overhead and latency compared to the one‑stream‑per‑connection model. Priority signaling has since
+    overhead and latency compared to the one-stream-per-connection model. Priority signaling has since
     been simplified, and server push saw limited benefit and is disabled by default in Chrome.
   </p>
+   <!-- Practical outcome for users/developers -->
 <p>
     In practice, multiplexing lets browsers fetch many resources at once without opening extra connections,
-    while header compression removes repeated metadata. Users see faster page loads and fewer stalls, especially on image‑heavy sites.
+    while header compression removes repeated metadata. Users see faster page loads and fewer stalls, especially on image-heavy sites.
     </p>
+    <!-- Closing statement -->
     <p>
   Together, these versions transformed HTTP from a simple text-based system to a robust foundation for the modern web.
 </p>
 
 </article>
 
+  <!-- Section: Side-by-side quick comparison -->
 <section class="card">
   <h3>Quick Comparison</h3>
   <table class="table">
