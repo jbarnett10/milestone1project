@@ -287,7 +287,7 @@
           <legend>Question 3 – Multiple choice</legend>
           <p class="quiz-question">
             3. Which HTTP version standardized <em>persistent connections</em> and
-            <em>chunked transfer encoding</em>, becoming the webâs "workhorse" for many years?
+            <em>chunked transfer encoding</em>, becoming the web’s "workhorse" for many years?
           </p>
           <div class="quiz-options">
             <label>
@@ -386,7 +386,7 @@
   </main>
 
   <footer class="footer">
-    <p>This website was created as part of IT 3203 â <a href="https://ksuweb.github.io/IT3203/">Course Site</a>.</p>
+    <p>This website was created as part of IT 3203 — <a href="https://ksuweb.github.io/IT3203/">Course Site</a>.</p>
   </footer>
 
   <!-- ===== Quiz Logic (JavaScript) ===== -->
@@ -554,23 +554,6 @@
           <div class="feedback-answer">
             <strong>Correct answer:</strong> ${correctAnswer}<br />
             ${explanation}
-          </div>
-        </div>
-      `;
-    }
-function buildFeedback({ number, correct, userAnswer, correctAnswer, explanation }) {
-      return `
-        <div class="question-feedback">
-          <h4>Question ${'${number}'}</h4>
-          <div class="badge ${'${correct ? "correct" : "incorrect"}'}">
-            ${'${correct ? "Correct" : "Incorrect"}'}
-          </div>
-          <div class="feedback-user ${'${correct ? "correct" : "incorrect"}'}">
-            Your answer: ${'${userAnswer}'}
-          </div>
-          <div class="feedback-answer">
-            <strong>Correct answer:</strong> ${'${correctAnswer}'}<br />
-            ${'${explanation}'}
           </div>
         </div>
       `;
