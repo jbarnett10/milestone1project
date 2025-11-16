@@ -220,7 +220,7 @@
       <a href="index.html">Home</a>
       <a href="origins.html">Origins</a>
       <a href="http11.html">HTTP/1.1 &amp; HTTP/2</a>
-      <a href="http3.html">HTTP/3 (QUIC)\</a>
+      <a href="http3.html">HTTP/3 (QUIC)</a>
       <a href="concepts.html">Key Concepts</a>
       <a href="references.html">References</a>
       <a href="about.html">About</a>
@@ -237,7 +237,7 @@
           This quiz helps you check your understanding of how HTTP evolved from early text-based requests
           to multiplexed, QUIC-powered HTTP/3. Answer the questions based on the content in this site.
         </p>
-        <span class="quiz-meta">5 questions Â· pass = 4 / 5 (80%)</span>
+        <span class="quiz-meta">5 questions · pass = 4 / 5 (80%)</span>
       </section>
 
       <form id="quizForm" class="quiz-form">
@@ -380,7 +380,7 @@
         Tip: If you miss a question, revisit pages like
         <a href="origins.html">Origins</a>,
         <a href="http11.html">HTTP/1.1 &amp; HTTP/2</a>, and
-        <a href="http3.html">HTTP/3 (QUIC)\</a> to review the material.
+        <a href="http3.html">HTTP/3 (QUIC)</a> to review the material.
       </p>
     </article>
   </main>
@@ -488,20 +488,21 @@
       const percentage = (score / TOTAL) * 100;
       const passed = (score / TOTAL) >= PASS_MARK;
 
+      
       const overallHtml = `
         <div class="quiz-overall ${passed ? 'pass' : 'fail'}">
-          ${passed ? 'â You passed the quiz!' : 'â You did not reach the pass mark yet.'}
+          ${passed ? '✅ You passed the quiz!' : '❌ You did not reach the pass mark yet.'}
         </div>
         <div class="quiz-score">
-          Score: <strong>${'${score}'} / ${'${TOTAL}'}</strong> (${ '${percentage.toFixed(0)'} }%) &nbsp;|&nbsp;
-          Pass mark: ${'${Math.round(PASS_MARK * 100)}'}%
+          Score: <strong>${score} / ${TOTAL}</strong> (${percentage.toFixed(0)}%) &nbsp;|&nbsp;
+          Pass mark: ${Math.round(PASS_MARK * 100)}%
         </div>
       `;
 
       quizResults.innerHTML = `
         <h3>Quiz Results</h3>
-        ${'${overallHtml}'}
-        ${'${feedbackBlocks.join("")}'}
+        ${overallHtml}
+        ${feedbackBlocks.join("")}
       `;
       quizResults.style.display = 'block';
       quizResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -541,6 +542,23 @@
     }
 
     function buildFeedback({ number, correct, userAnswer, correctAnswer, explanation }) {
+      return `
+        <div class="question-feedback">
+          <h4>Question ${number}</h4>
+          <div class="badge ${correct ? "correct" : "incorrect"}">
+            ${correct ? "Correct" : "Incorrect"}
+          </div>
+          <div class="feedback-user ${correct ? "correct" : "incorrect"}">
+            Your answer: ${userAnswer}
+          </div>
+          <div class="feedback-answer">
+            <strong>Correct answer:</strong> ${correctAnswer}<br />
+            ${explanation}
+          </div>
+        </div>
+      `;
+    }
+function buildFeedback({ number, correct, userAnswer, correctAnswer, explanation }) {
       return `
         <div class="question-feedback">
           <h4>Question ${'${number}'}</h4>
