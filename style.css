@@ -121,3 +121,16 @@ body {
   border-top: 1px solid #e5e7eb;
   margin-top: 20px;
 }
+
+
+/* Milestone 2: subtle link styling inside content cards */
+.card a {
+  color: #1d4ed8;
+  text-decoration: none;
+  border-bottom: 1px dashed #93c5fd;
+}
+
+.card a:hover {
+  color: #1e40af;
+  border-bottom-style: solid;
+}
