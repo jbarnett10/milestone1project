@@ -1,8 +1,8 @@
 <!-- 
-  Project: IT 3203 Milestone #1 — The Evolution of HTTP
+  Project: IT 3203 Milestone #2 — The Evolution of HTTP
   Author: Jayden Rodriguez-Barnett
   Course: Intro to Web Development (Fall 2025)
-  Purpose: This page is part of a 6-page educational site explaining how HTTP evolved.
+  Purpose: Key concepts page for a multi-page educational site on the evolution of HTTP.
   Notes: Uses shared navigation, single external CSS, and accessible structure.
 -->
 
@@ -11,11 +11,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Evolution of HTTP</title>
+  <title>Key Concepts — The Evolution of HTTP</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-   <!-- ===== Header and Site Navigation ===== -->
+  <!-- ===== Header and Site Navigation ===== -->
   <header class="header">
     <h1 class="site-title">The Evolution of HTTP</h1>
     <!-- Main navigation: shared across all pages -->
@@ -24,38 +24,70 @@
       <a href="origins.html">Origins</a>
       <a href="http11.html">HTTP/1.1 &amp; HTTP/2</a>
       <a href="http3.html">HTTP/3 (QUIC)</a>
-      <a href="concepts.html">Key Concepts</a>
+      <a href="concepts.html" aria-current="page">Key Concepts</a>
       <a href="references.html">References</a>
       <a href="about.html">About</a>
       <a href="quiz.html">Quiz</a>
     </nav>
   </header>
   
-   <!-- ===== Main Content Area ===== -->
+  <!-- ===== Main Content Area ===== -->
   <main class="container">
-     <!-- Card section listing HTTP key concepts -->
-<article class="card">
-  <h2>Key Concepts</h2>
-   <!-- Introductory text -->
-  <p>Below are core principles and mechanisms that have shaped HTTP's evolution.</p>
-  <!-- Unordered list of HTTP concepts -->
-  <ul>
-    <li><strong>HTTP Semantics:</strong> Stable methods, status codes, headers, and URIs across versions.</li>
-    <li><strong>Statelessness:</strong> Each request is independent; session state isn't implied, which simplifies servers but requires cookies/sessions for continuity.</li>
-    <li><strong>Persistent Connections:</strong> Reuse a TCP connection for multiple requests (HTTP/1.1), reducing handshake overhead and improving throughput.</li>
-    <li><strong>Multiplexing:</strong> Parallel streams over one connection (HTTP/2; QUIC for HTTP/3), minimizing blocking when many assets load at once.</li>
-    <li><strong>HPACK:</strong> Header compression algorithm in HTTP/2 that reduces repeated header bytes across requests.</li>
-    <li><strong>QUIC:</strong> UDP-based transport with integrated TLS 1.3 and stream multiplexing for HTTP/3.</li>
-    <li><strong>Head-of-Line Blocking:</strong> Single lost TCP packet stalling others; mitigated by QUIC streams.</li>
-  </ul>
+    <!-- Card section listing HTTP key concepts -->
+    <article class="card">
+      <h2>Key Concepts</h2>
+      <!-- Introductory text -->
+      <p>
+        These core ideas appear across HTTP versions and help explain why the protocol could evolve
+        without breaking the way applications think about requests and responses.
+      </p>
+      <!-- Unordered list of HTTP concepts -->
+      <ul>
+        <li>
+          <strong>HTTP Semantics:</strong> Stable methods, status codes, headers, and URIs define how clients
+          and servers talk to each other, regardless of which version or transport is underneath.
+        </li>
+        <li>
+          <strong>Statelessness:</strong> Each request is independent; servers do not automatically remember
+          previous requests. Features like cookies, sessions, and tokens are layered on top to provide continuity.
+        </li>
+        <li>
+          <strong>Persistent Connections:</strong> HTTP/1.1 reuses a TCP connection for multiple requests,
+          which reduces handshake overhead and improves throughput compared to one-connection-per-request.
+        </li>
+        <li>
+          <strong>Multiplexing:</strong> HTTP/2 and HTTP/3 allow many streams over a single connection so that
+          multiple resources can be fetched in parallel without opening extra connections.
+        </li>
+        <li>
+          <strong>HPACK:</strong> The header compression format in HTTP/2 that removes repeated header bytes
+          across requests, shrinking bandwidth usage on chatty sites.
+        </li>
+        <li>
+          <strong>QUIC:</strong> A UDP-based transport with built-in encryption and stream multiplexing that
+          underpins HTTP/3 and improves performance on lossy and mobile networks.
+        </li>
+        <li>
+          <strong>Head-of-Line Blocking:</strong> In TCP, a single lost packet can stall later data on the same
+          connection. QUIC reduces this by handling streams independently at the transport layer.
+        </li>
+        <li>
+          <strong>Version Independence:</strong> Modern specs separate shared semantics (RFC 9110) from individual
+          mappings (HTTP/1.1, HTTP/2, HTTP/3), so applications can think in “HTTP terms” while the wire format evolves.
+        </li>
+      </ul>
       <p>
         Together, these concepts show how HTTP kept its core semantics stable while evolving the transport layer
         from simple one-request-per-connection behavior to multiplexed, encrypted, QUIC-based delivery.
       </p>
-</article>
-</main>
+    </article>
+  </main>
+
   <footer class="footer">
-    <p>This website was created as part of IT 3203 — <a href="https://ksuweb.github.io/IT3203/">Course Site</a>.</p>
+    <p>
+      This website was created as part of IT 3203 —
+      <a href="https://ksuweb.github.io/IT3203/">Course Site</a>.
+    </p>
   </footer>
 </body>
 </html>

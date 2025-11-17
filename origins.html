@@ -1,8 +1,8 @@
 <!-- 
-  Project: IT 3203 Milestone #1 — The Evolution of HTTP
+  Project: IT 3203 Milestone #2 — The Evolution of HTTP
   Author: Jayden Rodriguez-Barnett
   Course: Intro to Web Development (Fall 2025)
-  Purpose: This page is part of a 6-page educational site explaining how HTTP evolved.
+  Purpose: Origins page for a multi-page educational site on the evolution of HTTP.
   Notes: Uses shared navigation, single external CSS, and accessible structure.
 -->
 
@@ -11,17 +11,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Evolution of HTTP</title>
+  <title>Origins — The Evolution of HTTP</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- ===== Header and Site Navigation ===== -->
   <header class="header">
-    <!-- ===== Header and Site Navigation ===== -->
     <h1 class="site-title">The Evolution of HTTP</h1>
-      <!-- Main navigation: shared across all pages -->
+    <!-- Main navigation: shared across all pages -->
     <nav class="nav">
       <a href="index.html">Home</a>
-      <a href="origins.html">Origins</a>
+      <a href="origins.html" aria-current="page">Origins</a>
       <a href="http11.html">HTTP/1.1 &amp; HTTP/2</a>
       <a href="http3.html">HTTP/3 (QUIC)</a>
       <a href="concepts.html">Key Concepts</a>
@@ -31,43 +31,57 @@
     </nav>
   </header>
   
-   <!-- ===== Main Content Area ===== -->
+  <!-- ===== Main Content Area ===== -->
   <main class="container">
     <!-- Article: Early history of HTTP (0.9 and 1.0) -->
-<article class="card">
-  <h2>Origins of HTTP: 0.9 and 1.0</h2>
-  <!-- Description of CERN and Tim Berners-Lee -->
-  <p>
-    The web began at <a href="https://home.cern/" target="_blank" rel="noopener">CERN</a> (1989-1991) where <a href="https://www.w3.org/People/Berners-Lee/" target="_blank" rel="noopener">Tim Berners‑Lee</a> proposed a distributed hypertext system.
-    The first stack paired URLs, HTML, and HTTP, demonstrated on <code>info.cern.ch</code>. The
-    WorldWideWeb browser/editor showed HTTP could glue publication and retrieval.
-  </p>
-  <!-- Explanation of HTTP/0.9 and HTTP/1.0 -->
-  <p>
-    <strong>HTTP/0.9</strong> exposed a single <code>GET</code> returning an untyped payload. No headers;
-    no content negotiation. <strong>HTTP/1.0</strong> (1996) added request/response headers, media typing,
-    and methods like <code>HEAD</code> and <code>POST</code>. Connections were typically short-lived
-    (one request per TCP connection), which later motivated performance work.
-  </p>
-  <!-- Closing summary of early impact -->
-<p>
-    These early additions defined the request-response model and content typing that still shape the web.
-    By introducing headers, methods, and media negotiation, HTTP/1.0 enabled richer pages and paved the way for later performance work.
-    </p></article>
+    <article class="card">
+      <h2>Origins of HTTP: 0.9 and 1.0</h2>
+      <!-- Description of CERN and Tim Berners-Lee -->
+      <p>
+        The web began at
+        <a href="https://home.cern/" target="_blank" rel="noopener">CERN</a>
+        in the early 1990s, where
+        <a href="https://www.w3.org/People/Berners-Lee/" target="_blank" rel="noopener">Tim Berners-Lee</a>
+        proposed a distributed hypertext system. The first stack combined URLs, HTML, and HTTP, demonstrated on
+        <code>info.cern.ch</code>. The WorldWideWeb browser/editor showed how HTTP could connect authors and readers
+        through a simple request–response model.
+      </p>
 
+      <!-- Explanation of HTTP/0.9 and HTTP/1.0 -->
+      <p>
+        <strong>HTTP/0.9</strong> defined a single <code>GET</code> method that returned an untyped HTML payload.
+        There were no headers and no content negotiation. <strong>HTTP/1.0</strong> (1996) added request and response
+        headers, media types, basic caching, and methods like <code>HEAD</code> and <code>POST</code>. Most servers
+        still used short-lived connections (one request per TCP connection), which later motivated performance work
+        in HTTP/1.1 and beyond.
+      </p>
 
-   <!-- Section: HTTP/1.0 request example -->
+      <!-- Closing summary of early impact -->
+      <p>
+        These early versions defined the core request–response pattern and content typing that still shape the web.
+        By introducing headers, methods, and media negotiation, HTTP/1.0 enabled richer pages and laid the groundwork
+        for the later focus on efficiency and scalability.
+      </p>
+    </article>
+
+    <!-- Section: HTTP/1.0 request example -->
     <section class="card">
-  <h3>Example: HTTP/1.0 Request</h3>
-  <pre class="code">GET /index.html HTTP/1.0
+      <h3>Example: HTTP/1.0 Request</h3>
+      <pre class="code">GET /index.html HTTP/1.0
 Host: example.org
 
 </pre>
-  <p class="caption">A simple HTTP/1.0 request with a <code>Host</code> header.</p>
-</section>
-</main>
+      <p class="caption">
+        A simple HTTP/1.0 request with a <code>Host</code> header, which allowed multiple sites to share one server.
+      </p>
+    </section>
+  </main>
+
   <footer class="footer">
-    <p>This website was created as part of IT 3203 — <a href="https://ksuweb.github.io/IT3203/">Course Site</a>.</p>
+    <p>
+      This website was created as part of IT 3203 —
+      <a href="https://ksuweb.github.io/IT3203/">Course Site</a>.
+    </p>
   </footer>
 </body>
 </html>
