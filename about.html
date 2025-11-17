@@ -1,8 +1,8 @@
 <!-- 
-  Project: IT 3203 Milestone #1 — The Evolution of HTTP
+  Project: IT 3203 Milestone #2 — The Evolution of HTTP
   Author: Jayden Rodriguez-Barnett
   Course: Intro to Web Development (Fall 2025)
-  Purpose: This page is part of a 6-page educational site explaining how HTTP evolved.
+  Purpose: About page for a multi-page educational site explaining how HTTP evolved.
   Notes: Uses shared navigation, single external CSS, and accessible structure.
 -->
 
@@ -11,44 +11,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Evolution of HTTP</title>
+  <title>About — The Evolution of HTTP</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- ===== Header and Site Navigation ===== -->
   <header class="header">
     <h1 class="site-title">The Evolution of HTTP</h1>
-     <!-- Main navigation: shared across all pages -->
+    <!-- Main navigation: shared across all pages -->
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="origins.html">Origins</a>
-      <a href="http11.html">HTTP/1.1 & HTTP/2</a>
+      <a href="http11.html">HTTP/1.1 &amp; HTTP/2</a>
       <a href="http3.html">HTTP/3 (QUIC)</a>
       <a href="concepts.html">Key Concepts</a>
       <a href="references.html">References</a>
-      <a href="about.html">About</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="quiz.html">Quiz</a>
     </nav>
   </header>
   
-<!-- ===== Main Content Area ===== -->
+  <!-- ===== Main Content Area ===== -->
   <main class="container">
     <!-- About section card -->
-<article class="card">
-  <h2>About</h2>
+    <article class="card">
+      <h2>About This Project</h2>
+
       <!-- Author and course information -->
-  <p><strong>Author:</strong> Jayden Rodriguez-Barnett</p>
-  <p><strong>Course:</strong> IT 3203 — Introduction to Web Development</p>
-  <p><strong>Instructor:</strong> Denise Tucker</p> 
-  <p><strong>Project:</strong> Milestone 1 — Basic Website with HTML &amp; CSS</p>
-  <!-- Description of the purpose of the site -->
-  <p>
-    This site summarizes my Assignment 1 research on the evolution of HTTP across versions 0.9/1.0, 1.1, 2, and 3,
-    with emphasis on the 2022 specification refactor and QUIC's role in HTTP/3.
-  </p>
-</article>
-</main>
+      <p><strong>Author:</strong> Jayden Rodriguez-Barnett</p>
+      <p><strong>Course:</strong> IT 3203 — Introduction to Web Development</p>
+      <p><strong>Instructor:</strong> Denise Tucker</p> 
+      <p><strong>Project:</strong> Milestone 2 — Dynamic Frontend with Quiz</p>
+
+      <!-- Description of the purpose of the site -->
+      <p>
+        This site summarizes my research on the evolution of HTTP across versions 0.9/1.0, 1.1, 2, and 3,
+        with emphasis on the 2022 specification refactor and QUIC&apos;s role in HTTP/3. The goal is to give
+        students a clear, high-level overview of how HTTP has changed over time while preserving its core semantics.
+      </p>
+
+      <p>
+        For Milestone 2, I extended the original content with an interactive self-assessment quiz, additional
+        explanations on key concepts, and small layout and style refinements. The quiz page allows visitors
+        to test their understanding of HTTP versions, performance features, and protocol design trade-offs.
+      </p>
+    </article>
+
+    <!-- Technologies / structure card (simple extra content) -->
+    <article class="card">
+      <h2>Technologies and Site Structure</h2>
+      <p>
+        This project is built with semantic HTML, a shared external CSS file, and a small amount of JavaScript
+        for form handling and quiz logic. Navigation is consistent across all pages to make it easy to explore:
+      </p>
+      <ul>
+        <li><strong>Home:</strong> Introduces the topic and motivation.</li>
+        <li><strong>Origins:</strong> Early HTTP (0.9/1.0) and basic request/response ideas.</li>
+        <li><strong>HTTP/1.1 &amp; HTTP/2:</strong> Persistent connections, pipelining, and multiplexing.</li>
+        <li><strong>HTTP/3 (QUIC):</strong> UDP-based transport, connection migration, and reduced latency.</li>
+        <li><strong>Key Concepts:</strong> Core ideas that connect the different HTTP versions.</li>
+        <li><strong>Quiz:</strong> Self-assessment on the evolution and design of HTTP.</li>
+        <li><strong>References:</strong> Sources and further reading.</li>
+      </ul>
+    </article>
+  </main>
+
   <footer class="footer">
-    <p>This website was created as part of IT 3203 — <a href="https://ksuweb.github.io/IT3203/">Course Site</a>.</p>
+    <p>
+      This website was created as part of IT 3203 —
+      <a href="https://ksuweb.github.io/IT3203/">Course Site</a>.
+    </p>
   </footer>
 </body>
 </html>

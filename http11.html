@@ -1,8 +1,8 @@
 <!-- 
-  Project: IT 3203 Milestone #1 — The Evolution of HTTP
+  Project: IT 3203 Milestone #2 — The Evolution of HTTP
   Author: Jayden Rodriguez-Barnett
   Course: Intro to Web Development (Fall 2025)
-  Purpose: This page is part of a 6-page educational site explaining how HTTP evolved.
+  Purpose: HTTP/1.1 and HTTP/2 overview page for a multi-page educational site.
   Notes: Uses shared navigation, single external CSS, and accessible structure.
 -->
 
@@ -11,73 +11,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Evolution of HTTP</title>
+  <title>HTTP/1.1 &amp; HTTP/2 — The Evolution of HTTP</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- ===== Header and Site Navigation ===== -->
   <header class="header">
     <h1 class="site-title">The Evolution of HTTP</h1>
-     <!-- Main navigation: shared across all pages -->
+    <!-- Main navigation: shared across all pages -->
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="origins.html">Origins</a>
-      <a href="http11.html">HTTP/1.1 & HTTP/2</a>
+      <a href="http11.html" aria-current="page">HTTP/1.1 &amp; HTTP/2</a>
       <a href="http3.html">HTTP/3 (QUIC)</a>
       <a href="concepts.html">Key Concepts</a>
       <a href="references.html">References</a>
       <a href="about.html">About</a>
+      <a href="quiz.html">Quiz</a>
     </nav>
   </header>
-  
   
   <!-- ===== Main Content Area ===== -->
   <main class="container">
     <!-- Article: Overview of HTTP/1.1 and HTTP/2 -->
-<article class="card">
-  <h2>HTTP/1.1 and HTTP/2</h2>
-  <!-- Summary of HTTP/1.1 features -->
-  <p>
-    <strong>HTTP/1.1</strong> standardized persistent connections, chunked transfer encoding, virtual
-    hosting via <code>Host</code>, and a mature caching model. It became the default across major servers
-    for two decades.
-  </p>
-   <!-- Summary of HTTP/2 changes and their impact -->
-  <p>
-    <strong>HTTP/2</strong> (2015) preserved semantics but added a binary framing layer that multiplexes
-    many streams over a single TCP connection and compresses headers (HPACK). This reduced handshake
-    overhead and latency compared to the one-stream-per-connection model. Priority signaling has since
-    been simplified, and server push saw limited benefit and is disabled by default in Chrome.
-  </p>
-   <!-- Practical outcome for users/developers -->
-<p>
-    In practice, multiplexing lets browsers fetch many resources at once without opening extra connections,
-    while header compression removes repeated metadata. Users see faster page loads and fewer stalls, especially on image-heavy sites.
-    </p>
-    <!-- Closing statement -->
-    <p>
-  Together, these versions transformed HTTP from a simple text-based system to a robust foundation for the modern web.
-</p>
+    <article class="card">
+      <h2>HTTP/1.1 and HTTP/2</h2>
 
-</article>
+      <!-- Summary of HTTP/1.1 features -->
+      <p>
+        <strong>HTTP/1.1</strong> standardized persistent connections, chunked transfer encoding, virtual
+        hosting via the <code>Host</code> header, and a mature caching model. It became the default across
+        major web servers and browsers for roughly two decades.
+      </p>
 
-  <!-- Section: Side-by-side quick comparison -->
-<section class="card">
-  <h3>Quick Comparison</h3>
-  <table class="table">
-    <thead>
-      <tr><th>Feature</th><th>HTTP/1.1</th><th>HTTP/2</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Connection Usage</td><td>Persistent; one stream per TCP</td><td>Many streams over one TCP</td></tr>
-      <tr><td>Headers</td><td>Plain text</td><td>HPACK compression</td></tr>
-      <tr><td>Primary Benefit</td><td>Correctness + practicality at scale</td><td>Lower latency via multiplexing</td></tr>
-    </tbody>
-  </table>
-</section>
-</main>
+      <!-- Summary of HTTP/2 changes and their impact -->
+      <p>
+        <strong>HTTP/2</strong> (2015) preserved HTTP semantics but introduced a binary framing layer that
+        multiplexes many streams over a single TCP connection and compresses headers using HPACK. This design
+        reduces handshake overhead and latency compared to the one-stream-per-connection approach in HTTP/1.1.
+        Priority signaling was simplified in later updates, and server push saw limited benefit and is now
+        disabled by default in Chrome.
+      </p>
+
+      <!-- Practical outcome for users/developers -->
+      <p>
+        In practice, multiplexing lets browsers fetch many resources in parallel without opening extra connections,
+        while header compression eliminates repeated metadata. Users see faster page loads and fewer stalls on
+        image-heavy or script-heavy sites, and developers can rely less on workarounds like domain sharding and
+        resource inlining.
+      </p>
+
+      <!-- Closing statement -->
+      <p>
+        Together, HTTP/1.1 and HTTP/2 transformed HTTP from a simple text-based protocol into a more efficient,
+        scalable foundation for the modern web, paving the way for HTTP/3 and QUIC.
+      </p>
+    </article>
+
+    <!-- Section: Side-by-side quick comparison -->
+    <section class="card">
+      <h3>Quick Comparison</h3>
+      <table class="table">
+        <caption>Key Differences Between HTTP/1.1 and HTTP/2</caption>
+        <thead>
+          <tr>
+            <th scope="col">Feature</th>
+            <th scope="col">HTTP/1.1</th>
+            <th scope="col">HTTP/2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Connection Usage</td>
+            <td>Persistent; one active stream per TCP connection</td>
+            <td>Many independent streams over a single TCP connection</td>
+          </tr>
+          <tr>
+            <td>Headers</td>
+            <td>Plain text, repeated on each request</td>
+            <td>Binary representation with HPACK compression</td>
+          </tr>
+          <tr>
+            <td>Primary Benefit</td>
+            <td>Correctness and practicality at Internet scale</td>
+            <td>Lower latency and better utilization of a single connection</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
   <footer class="footer">
-    <p>This website was created as part of IT 3203 — <a href="https://ksuweb.github.io/IT3203/">Course Site</a>.</p>
+    <p>
+      This website was created as part of IT 3203 —
+      <a href="https://ksuweb.github.io/IT3203/">Course Site</a>.
+    </p>
   </footer>
 </body>
 </html>
