@@ -71,33 +71,36 @@
     <!-- Section: Side-by-side quick comparison -->
     <section class="card">
       <h3>Quick Comparison</h3>
-      <table class="table">
-        <caption>Key Differences Between HTTP/1.1 and HTTP/2</caption>
-        <thead>
-          <tr>
-            <th scope="col">Feature</th>
-            <th scope="col">HTTP/1.1</th>
-            <th scope="col">HTTP/2</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Connection Usage</td>
-            <td>Persistent; one active stream per TCP connection</td>
-            <td>Many independent streams over a single TCP connection</td>
-          </tr>
-          <tr>
-            <td>Headers</td>
-            <td>Plain text, repeated on each request</td>
-            <td>Binary representation with HPACK compression</td>
-          </tr>
-          <tr>
-            <td>Primary Benefit</td>
-            <td>Correctness and practicality at Internet scale</td>
-            <td>Lower latency and better utilization of a single connection</td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- Responsive table wrapper: enables horizontal scrolling on mobile devices -->
+      <div class="table-wrapper">
+        <table class="table">
+          <caption>Key Differences Between HTTP/1.1 and HTTP/2</caption>
+          <thead>
+            <tr>
+              <th scope="col">Feature</th>
+              <th scope="col">HTTP/1.1</th>
+              <th scope="col">HTTP/2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Connection Usage</td>
+              <td>Persistent; one active stream per TCP connection</td>
+              <td>Many independent streams over a single TCP connection</td>
+            </tr>
+            <tr>
+              <td>Headers</td>
+              <td>Plain text, repeated on each request</td>
+              <td>Binary representation with HPACK compression</td>
+            </tr>
+            <tr>
+              <td>Primary Benefit</td>
+              <td>Correctness and practicality at Internet scale</td>
+              <td>Lower latency and better utilization of a single connection</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
   </main>
 
