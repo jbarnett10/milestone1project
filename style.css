@@ -1,136 +1,556 @@
-/* Single CSS file for all pages — demonstrates selectors, layout (flex/grid),
-   hover effects, paddings/margins, borders, colors, and fonts. */
+/* 
+ * Responsive CSS for "The Evolution of HTTP" Website
+ * 
+ * This stylesheet implements a mobile-first responsive design approach,
+ * ensuring the website works well on mobile devices, tablets, and desktops.
+ * 
+ * Breakpoints:
+ * - Mobile: default (up to 600px)
+ * - Tablet: 601px - 900px
+ * - Desktop: 901px and above
+ * 
+ * Author: Jayden Rodriguez-Barnett
+ * Course: IT 3203 — Introduction to Web Development
+ */
 
-/* Element selector */
+/* ============================================
+   MOBILE-FIRST BASE STYLES (Default: Mobile)
+   ============================================ */
+
+/* Prevent horizontal overflow on all devices */
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Base element styles - optimized for mobile readability */
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   background: #f7f9fc;
   color: #1f2937;
   line-height: 1.65;
+  /* Ensure minimum font size for mobile readability (16px prevents zoom on iOS) */
+  font-size: 16px;
+  /* Prevent horizontal overflow */
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* ID selector example (not strictly needed, but included to satisfy 'three selector types') */
+/* Ensure all elements use border-box for proper width calculations */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ID selector example */
 #highlight {
   background: #fff3cd;
   border-left: 4px solid #f59e0b;
   padding: 10px 14px;
 }
 
-/* Class selectors */
+/* ============================================
+   HEADER AND NAVIGATION (Mobile-First)
+   ============================================ */
+
+/* Header styling - consistent across all screen sizes */
 .header {
   background: #0f172a;
   color: white;
-  padding: 18px 22px;
+  /* Reduced padding on mobile for better space utilization */
+  padding: 14px 16px;
   border-bottom: 4px solid #1d4ed8;
+  /* Ensure header doesn't cause horizontal overflow */
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* Site title - responsive font size */
 .site-title {
-  margin: 0 0 10px 0;
-  font-size: 1.6rem;
+  margin: 0 0 12px 0;
+  /* Smaller font size on mobile */
+  font-size: 1.4rem;
+  line-height: 1.2;
 }
 
+/* Navigation - Mobile: Stacked vertical layout for better touch targets */
 .nav {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column; /* Stack vertically on mobile */
   gap: 8px;
+  /* Ensure navigation doesn't overflow */
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* Navigation links - Mobile: Full-width buttons for easy tapping */
 .nav a {
   text-decoration: none;
   background: #e5e7eb;
-  padding: 8px 12px;
+  /* Increased padding for touch-friendly targets (minimum 44px height recommended) */
+  padding: 12px 14px;
   border-radius: 8px;
   border: 1px solid #cbd5e1;
-  transition: transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out, background 0.15s ease;
   color: #0f172a;
+  /* Ensure text is readable and centered */
+  text-align: center;
+  font-size: 0.95rem;
+  /* Minimum touch target size (44x44px) */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Ensure links don't overflow */
+  width: 100%;
+  box-sizing: border-box;
+  /* Prevent text from breaking awkwardly */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
-.nav a:hover {
+.nav a:hover,
+.nav a:focus {
   background: #1d4ed8;
   color: white;
   transform: translateY(-1px);
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
 }
 
-/* Main layout using CSS Grid */
+/* ============================================
+   MAIN LAYOUT (Mobile-First)
+   ============================================ */
+
+/* Container - Mobile: Reduced padding, full width */
 .container {
   display: grid;
-  gap: 20px;
-  padding: 22px;
+  gap: 16px;
+  /* Reduced padding on mobile */
+  padding: 16px;
   max-width: 1000px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  /* Prevent horizontal overflow */
+  overflow-x: hidden;
 }
 
-/* Utility grid */
-.grid.two {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
-@media (min-width: 800px) {
-  .grid.two {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
+/* Card component - Mobile: Reduced padding */
 .card {
   background: white;
   border: 1px solid #e5e7eb;
   border-radius: 12px;
-  padding: 18px;
+  padding: 16px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  /* Ensure cards don't overflow */
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
+/* Utility grid - Mobile: Single column by default */
+.grid.two {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* Code blocks - Mobile: Horizontal scroll for long lines */
 .code {
   background: #0b1020;
   color: #e5e7eb;
-  padding: 14px;
+  padding: 12px;
   border-radius: 10px;
   overflow-x: auto;
+  /* Ensure code is readable on mobile */
+  font-size: 0.875rem;
+  line-height: 1.5;
+  /* Prevent code blocks from causing page overflow */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  /* Enable smooth scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
 }
 
+/* Caption text */
 .caption {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: #475569;
+  margin-top: 8px;
 }
 
+/* ============================================
+   TABLES (Mobile-First with Responsive Wrapper)
+   ============================================ */
+
+/* Table wrapper - enables horizontal scrolling on mobile */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  /* Add subtle shadow to indicate scrollability */
+  -webkit-overflow-scrolling: touch;
+  margin-top: 10px;
+  /* Prevent wrapper from causing page overflow */
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Table styling - Mobile: May require horizontal scroll */
 .table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
+  margin-top: 0;
+  /* Reduced min-width for smaller phones (many are 320-375px wide) */
+  min-width: 320px;
+  /* Allow table to grow on larger screens */
+  max-width: 100%;
 }
 
 .table th, .table td {
   border: 1px solid #cbd5e1;
-  padding: 10px;
+  /* Reduced padding on mobile */
+  padding: 8px 10px;
   text-align: left;
+  font-size: 0.9rem;
 }
 
+.table th {
+  background: #f1f5f9;
+  font-weight: 600;
+}
+
+.table caption {
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   IMAGES (Responsive by Default)
+   ============================================ */
+
+/* Hero images - Mobile: Full width, auto height */
 .hero-img {
   width: 100%;
   height: auto;
   border: 1px solid #cbd5e1;
   border-radius: 10px;
   margin-top: 10px;
+  /* Ensure images don't overflow container */
+  max-width: 100%;
+  display: block;
 }
+
+/* All images should be responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ============================================
+   QUIZ FORM STYLES (Mobile-First)
+   ============================================ */
+
+/* Quiz form is styled in quiz.html's internal stylesheet,
+   but we ensure base form elements are mobile-friendly */
+
+/* Form inputs - Mobile: Full width, larger touch targets */
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  width: 100%;
+  box-sizing: border-box;
+  /* Minimum font size to prevent zoom on iOS */
+  font-size: 16px;
+  padding: 10px 12px;
+  border-radius: 7px;
+  border: 1px solid #d1d5db;
+}
+
+/* ============================================
+   TYPOGRAPHY (Responsive)
+   ============================================ */
+
+/* Headings - Mobile: Appropriate sizes */
+h1 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  margin: 0 0 12px 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin: 0 0 12px 0;
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin: 0 0 10px 0;
+}
+
+h4 {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin: 0 0 8px 0;
+}
+
+/* Paragraphs - Mobile: Readable line length */
+p {
+  margin: 0 0 12px 0;
+  font-size: 1rem;
+}
+
+/* Lists - Mobile: Proper spacing */
+ul, ol {
+  margin: 0 0 12px 0;
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+/* ============================================
+   FOOTER (Mobile-First)
+   ============================================ */
 
 .footer {
   text-align: center;
-  padding: 18px;
+  padding: 16px;
   color: #64748b;
   border-top: 1px solid #e5e7eb;
   margin-top: 20px;
+  font-size: 0.9rem;
 }
 
+/* ============================================
+   LINK STYLING
+   ============================================ */
 
-/* Milestone 2: subtle link styling inside content cards */
+/* Links inside cards */
 .card a {
   color: #1d4ed8;
   text-decoration: none;
   border-bottom: 1px dashed #93c5fd;
 }
 
-.card a:hover {
+.card a:hover,
+.card a:focus {
   color: #1e40af;
   border-bottom-style: solid;
+  outline: none;
+}
+
+/* ============================================
+   MEDIA QUERIES - SMALL MOBILE (up to 360px)
+   ============================================ */
+
+@media (max-width: 360px) {
+  /* Further reduce table min-width for very small phones */
+  .table {
+    min-width: 280px;
+  }
+  
+  /* Reduce padding even more on very small screens */
+  .container {
+    padding: 12px;
+  }
+  
+  .card {
+    padding: 12px;
+  }
+  
+  .header {
+    padding: 12px 14px;
+  }
+}
+
+/* ============================================
+   MEDIA QUERIES - TABLET (601px - 900px)
+   ============================================ */
+
+@media (min-width: 601px) {
+  /* Increase base font size slightly for tablets */
+  body {
+    font-size: 17px;
+  }
+
+  /* Header - More padding on tablet */
+  .header {
+    padding: 16px 20px;
+  }
+
+  /* Site title - Larger on tablet */
+  .site-title {
+    font-size: 1.5rem;
+  }
+
+  /* Navigation - Switch to horizontal layout on tablet */
+  .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Navigation links - Smaller padding, not full width */
+  .nav a {
+    padding: 10px 14px;
+    min-height: auto;
+    text-align: left;
+    font-size: 0.9rem;
+  }
+
+  /* Container - More padding on tablet */
+  .container {
+    padding: 20px;
+    gap: 18px;
+  }
+
+  /* Cards - More padding on tablet */
+  .card {
+    padding: 18px;
+  }
+
+  /* Grid - Two columns on tablet */
+  .grid.two {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  /* Typography - Slightly larger on tablet */
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+  }
+
+  /* Table - More padding on tablet */
+  .table th, .table td {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================================
+   MEDIA QUERIES - DESKTOP (901px and above)
+   ============================================ */
+
+@media (min-width: 901px) {
+  /* Base font size for desktop */
+  body {
+    font-size: 18px;
+  }
+
+  /* Header - Maximum padding on desktop */
+  .header {
+    padding: 18px 22px;
+  }
+
+  /* Site title - Largest on desktop */
+  .site-title {
+    font-size: 1.6rem;
+    margin: 0 0 10px 0;
+  }
+
+  /* Navigation - Horizontal, no wrapping needed on desktop */
+  .nav {
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  /* Navigation links - Optimized for desktop */
+  .nav a {
+    padding: 8px 12px;
+    font-size: 0.95rem;
+  }
+
+  /* Container - Maximum padding and spacing on desktop */
+  .container {
+    padding: 22px;
+    gap: 20px;
+  }
+
+  /* Cards - Maximum padding on desktop */
+  .card {
+    padding: 18px;
+  }
+
+  /* Grid - Maintain two columns on desktop */
+  .grid.two {
+    gap: 20px;
+  }
+
+  /* Typography - Largest on desktop */
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  /* Table - Maximum padding on desktop */
+  .table th, .table td {
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  /* Code blocks - More padding on desktop */
+  .code {
+    padding: 14px;
+    font-size: 0.9rem;
+  }
+
+  /* Footer - More padding on desktop */
+  .footer {
+    padding: 18px;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY ENHANCEMENTS
+   ============================================ */
+
+/* Focus styles for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #1d4ed8;
+  outline-offset: 2px;
+}
+
+/* Skip to main content link (if needed in future) */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #1d4ed8;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
 }

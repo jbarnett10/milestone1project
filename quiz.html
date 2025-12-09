@@ -6,9 +6,15 @@
   <title>The Evolution of HTTP – Quiz</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    /* 
+     * Quiz Form Styles - Responsive Design
+     * Mobile-first approach: Base styles optimized for mobile devices,
+     * with enhancements for tablet and desktop via media queries.
+     */
 
+    /* Mobile-first base styles */
     .quiz-intro {
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .quiz-intro p {
@@ -21,15 +27,16 @@
       border: 1px solid #93c5fd;
       padding: 6px 10px;
       border-radius: 999px;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       color: #1d4ed8;
       margin-top: 6px;
     }
 
+    /* Form fieldsets - Mobile: Full width, adequate padding */
     .quiz-form fieldset {
       border: 1px solid #e5e7eb;
       border-radius: 10px;
-      padding: 14px 16px;
+      padding: 12px 14px;
       margin: 0 0 14px 0;
       background: #ffffff;
     }
@@ -38,12 +45,13 @@
       font-weight: 600;
       color: #1f2937;
       padding: 0 4px;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
     .quiz-question {
       font-weight: 600;
       margin-bottom: 6px;
+      font-size: 0.95rem;
     }
 
     .quiz-helper {
@@ -52,33 +60,41 @@
       margin-bottom: 8px;
     }
 
+    /* Quiz options - Mobile: Stacked vertically for easy selection */
     .quiz-options {
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      font-size: 0.95rem;
+      gap: 6px;
+      font-size: 0.9rem;
     }
 
     .quiz-options label {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       cursor: pointer;
+      /* Ensure touch-friendly targets */
+      padding: 8px 4px;
+      min-height: 44px;
     }
 
     .quiz-options input[type="radio"],
     .quiz-options input[type="checkbox"] {
-      width: 16px;
-      height: 16px;
+      width: 20px;
+      height: 20px;
       accent-color: #1d4ed8;
+      flex-shrink: 0;
     }
 
+    /* Text input - Mobile: Full width, larger font to prevent zoom */
     .quiz-input {
       width: 100%;
-      padding: 7px 9px;
+      box-sizing: border-box;
+      padding: 10px 12px;
       border-radius: 7px;
       border: 1px solid #d1d5db;
-      font-size: 0.95rem;
+      /* Minimum 16px font size prevents iOS zoom on focus */
+      font-size: 16px;
     }
 
     .quiz-input:focus {
@@ -87,21 +103,26 @@
       box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
     }
 
+    /* Action buttons - Mobile: Full width, stacked */
     .quiz-actions {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 6px;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
     }
 
     .btn {
       border: none;
       border-radius: 999px;
-      padding: 8px 16px;
-      font-size: 0.95rem;
+      padding: 12px 20px;
+      font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
       transition: background 0.15s ease, transform 0.08s ease, box-shadow 0.15s ease;
+      /* Touch-friendly button size (minimum 44px height) */
+      min-height: 44px;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .btn-primary {
@@ -110,9 +131,12 @@
       box-shadow: 0 2px 6px rgba(37, 99, 235, 0.35);
     }
 
-    .btn-primary:hover {
+    .btn-primary:hover,
+    .btn-primary:focus {
       background: #1e40af;
       transform: translateY(-1px);
+      outline: 2px solid #93c5fd;
+      outline-offset: 2px;
     }
 
     .btn-secondary {
@@ -121,9 +145,12 @@
       border: 1px solid #d1d5db;
     }
 
-    .btn-secondary:hover {
+    .btn-secondary:hover,
+    .btn-secondary:focus {
       background: #e5e7eb;
       transform: translateY(-1px);
+      outline: 2px solid #cbd5e1;
+      outline-offset: 2px;
     }
 
     .quiz-results {
@@ -133,17 +160,19 @@
       border: 1px dashed #cbd5e1;
       background: #f9fafb;
       display: none;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
     .quiz-results h3 {
       margin-top: 0;
       margin-bottom: 8px;
+      font-size: 1.1rem;
     }
 
     .quiz-overall {
       font-weight: 600;
       margin-bottom: 4px;
+      font-size: 1rem;
     }
 
     .quiz-overall.pass {
@@ -157,6 +186,7 @@
     .quiz-score {
       color: #4b5563;
       margin-bottom: 10px;
+      font-size: 0.9rem;
     }
 
     .question-feedback {
@@ -167,7 +197,7 @@
 
     .question-feedback h4 {
       margin: 0 0 4px 0;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
     .badge {
@@ -207,7 +237,103 @@
 
     .feedback-answer {
       color: #4b5563;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
+    }
+
+    /* ============================================
+       TABLET STYLES (601px - 900px)
+       ============================================ */
+    @media (min-width: 601px) {
+      .quiz-intro {
+        margin-bottom: 20px;
+      }
+
+      .quiz-meta {
+        font-size: 0.9rem;
+      }
+
+      .quiz-form fieldset {
+        padding: 14px 16px;
+      }
+
+      .quiz-form legend {
+        font-size: 0.95rem;
+      }
+
+      .quiz-question {
+        font-size: 1rem;
+      }
+
+      .quiz-options {
+        font-size: 0.95rem;
+        gap: 4px;
+      }
+
+      .quiz-options label {
+        padding: 6px 4px;
+        min-height: auto;
+      }
+
+      .quiz-options input[type="radio"],
+      .quiz-options input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+      }
+
+      .quiz-input {
+        padding: 8px 10px;
+        font-size: 0.95rem;
+      }
+
+      /* Buttons side-by-side on tablet */
+      .quiz-actions {
+        flex-direction: row;
+        gap: 8px;
+      }
+
+      .btn {
+        width: auto;
+        padding: 10px 18px;
+        font-size: 0.95rem;
+        min-height: auto;
+      }
+
+      .quiz-results {
+        font-size: 0.95rem;
+      }
+
+      .quiz-results h3 {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* ============================================
+       DESKTOP STYLES (901px and above)
+       ============================================ */
+    @media (min-width: 901px) {
+      .quiz-intro {
+        margin-bottom: 20px;
+      }
+
+      .quiz-form fieldset {
+        padding: 14px 16px;
+      }
+
+      .quiz-options input[type="radio"],
+      .quiz-options input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+      }
+
+      .quiz-input {
+        padding: 7px 9px;
+        font-size: 0.95rem;
+      }
+
+      .btn {
+        padding: 8px 16px;
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
@@ -389,174 +515,7 @@
   </footer>
 
   <!-- ===== Quiz Logic (JavaScript) ===== -->
-  <script>
-    const quizForm = document.getElementById('quizForm');
-    const quizResults = document.getElementById('quizResults');
-    const resetBtn = document.getElementById('resetBtn');
-
-    const ANSWERS = {
-      q1: 'quic',          // fill-in (case-insensitive)
-      q2: 'B',
-      q3: 'C',
-      q4: 'B',
-      q5: ['A', 'B', 'D']  // multi-select
-    };
-
-    const TOTAL = 5;
-    const PASS_MARK = 0.8; // 80%
-
-    quizForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      let score = 0;
-      const feedbackBlocks = [];
-
-      // Q1
-      const q1Value = document.getElementById('q1').value.trim().toLowerCase();
-      const q1Correct = q1Value === ANSWERS.q1;
-      if (q1Correct) score++;
-
-      feedbackBlocks.push(buildFeedback({
-        number: 1,
-        correct: q1Correct,
-        userAnswer: q1Value || '(no answer entered)',
-        correctAnswer: 'QUIC',
-        explanation: 'HTTP/3 maps HTTP onto QUIC, a UDP-based transport that reduces head-of-line blocking.'
-      }));
-
-      // Q2
-      const q2Value = getRadioValue('q2');
-      const q2Correct = q2Value === ANSWERS.q2;
-      if (q2Correct) score++;
-
-      feedbackBlocks.push(buildFeedback({
-        number: 2,
-        correct: q2Correct,
-        userAnswer: q2Value ? getOptionLabel('q2', q2Value) : '(no option selected)',
-        correctAnswer: 'B. A stateless, application-layer protocol for client–server communication',
-        explanation: 'HTTP defines how clients and servers exchange requests and responses over the web.'
-      }));
-
-      // Q3
-      const q3Value = getRadioValue('q3');
-      const q3Correct = q3Value === ANSWERS.q3;
-      if (q3Correct) score++;
-
-      feedbackBlocks.push(buildFeedback({
-        number: 3,
-        correct: q3Correct,
-        userAnswer: q3Value ? getOptionLabel('q3', q3Value) : '(no option selected)',
-        correctAnswer: 'C. HTTP/1.1',
-        explanation: 'HTTP/1.1 introduced persistent connections and chunked transfer encoding.' 
-      }));
-
-      // Q4
-      const q4Value = getRadioValue('q4');
-      const q4Correct = q4Value === ANSWERS.q4;
-      if (q4Correct) score++;
-
-      feedbackBlocks.push(buildFeedback({
-        number: 4,
-        correct: q4Correct,
-        userAnswer: q4Value ? getOptionLabel('q4', q4Value) : '(no option selected)',
-        correctAnswer: 'B. Binary framing + multiplexed streams on a single TCP connection',
-        explanation: 'HTTP/2 keeps HTTP semantics but adds a binary framing layer for multiplexing and header compression.'
-      }));
-
-      // Q5
-      const q5Values = getCheckboxValues('q5');
-      const q5Correct = arraysEqualIgnoreOrder(q5Values, ANSWERS.q5);
-      if (q5Correct) score++;
-
-      const userQ5Label = q5Values.length
-        ? q5Values.map(v => getOptionLabel('q5', v)).join('; ')
-        : '(no options selected)';
-
-      const correctQ5Label = ANSWERS.q5
-        .map(v => getOptionLabel('q5', v))
-        .join('; ');
-
-      feedbackBlocks.push(buildFeedback({
-        number: 5,
-        correct: q5Correct,
-        userAnswer: userQ5Label,
-        correctAnswer: correctQ5Label,
-        explanation: 'HTTP/3 over QUIC uses UDP, avoids TCP head-of-line blocking, and supports faster 0-RTT/1-RTT setup.'
-      }));
-
-      const percentage = (score / TOTAL) * 100;
-      const passed = (score / TOTAL) >= PASS_MARK;
-
-      
-      const overallHtml = `
-        <div class="quiz-overall ${passed ? 'pass' : 'fail'}">
-          ${passed ? '✅ You passed the quiz!' : '❌ You did not reach the pass mark yet.'}
-        </div>
-        <div class="quiz-score">
-          Score: <strong>${score} / ${TOTAL}</strong> (${percentage.toFixed(0)}%) &nbsp;|&nbsp;
-          Pass mark: ${Math.round(PASS_MARK * 100)}%
-        </div>
-      `;
-
-      quizResults.innerHTML = `
-        <h3>Quiz Results</h3>
-        ${overallHtml}
-        ${feedbackBlocks.join("")}
-      `;
-      quizResults.style.display = 'block';
-      quizResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    resetBtn.addEventListener('click', function () {
-      quizForm.reset();
-      quizResults.innerHTML = '';
-      quizResults.style.display = 'none';
-    });
-
-    function getRadioValue(name) {
-      const inputs = document.querySelectorAll('input[name="' + name + '"]');
-      for (const input of inputs) {
-        if (input.checked) return input.value;
-      }
-      return null;
-    }
-
-    function getCheckboxValues(name) {
-      const inputs = document.querySelectorAll('input[name="' + name + '"]:checked');
-      return Array.from(inputs).map(i => i.value);
-    }
-
-    function arraysEqualIgnoreOrder(a, b) {
-      if (a.length !== b.length) return false;
-      const sortedA = [...a].sort();
-      const sortedB = [...b].sort();
-      return sortedA.every((v, i) => v === sortedB[i]);
-    }
-
-    function getOptionLabel(name, value) {
-      const input = document.querySelector('input[name="' + name + '"][value="' + value + '"]');
-      if (!input) return value;
-      const label = input.closest('label');
-      return label ? label.textContent.trim() : value;
-    }
-
-    function buildFeedback({ number, correct, userAnswer, correctAnswer, explanation }) {
-      return `
-        <div class="question-feedback">
-          <h4>Question ${number}</h4>
-          <div class="badge ${correct ? "correct" : "incorrect"}">
-            ${correct ? "Correct" : "Incorrect"}
-          </div>
-          <div class="feedback-user ${correct ? "correct" : "incorrect"}">
-            Your answer: ${userAnswer}
-          </div>
-          <div class="feedback-answer">
-            <strong>Correct answer:</strong> ${correctAnswer}<br />
-            ${explanation}
-          </div>
-        </div>
-      `;
-    }
-  </script>
+  <!-- Quiz functionality has been moved to external script.js for better organization -->
+  <script src="script.js"></script>
 </body>
 </html>
